@@ -66,7 +66,7 @@
 				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
 				{%endfor%}
 			</div>
-			<a href="#" class="goods_more fr" id="fruit_more">查看更多 ></a>
+			<a href="/goods/list5_1_1/" class="goods_more fr" id="fruit_more">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
@@ -88,35 +88,23 @@
 			<h3 class="fl" id="model02">海鲜水产</h3>
 			<div class="subtitle fl">
 				<span>|</span>
-				<a href="#">河虾</a>
-				<a href="#">扇贝</a>				
+				{%for g in type11%}
+				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
+				{%endfor%}
 			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
+			<a href="/goods/list6_1_1/" class="goods_more fr">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
 			<div class="goods_banner fl"><img src="/static/images/banner02.jpg"></div>
 			<ul class="goods_list fl">
+				{%for g in type1%}
 				<li>
-					<h4><a href="#">青岛野生海捕大青虾</a></h4>
-					<a href="#"><img src="/static/images/goods/goods018.jpg"></a>
-					<div class="prize">¥ 48.00</div>
+					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
+					<a href="/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
+					<div class="prize">¥ {{g.gprice}}</div>
 				</li>
-				<li>
-					<h4><a href="#">扇贝</a></h4>
-					<a href="#"><img src="/static/images/goods/goods019.jpg"></a>
-					<div class="prize">¥ 46.00</div>
-				</li>
-				<li>
-					<h4><a href="#">冷冻秋刀鱼</a></h4>
-					<a href="#"><img src="/static/images/goods/goods020.jpg"></a>
-					<div class="prize">¥ 19.00</div>
-				</li>
-				<li>
-					<h4><a href="#">基围虾</a></h4>
-					<a href="#"><img src="/static/images/goods/goods021.jpg"></a>
-					<div class="prize">¥ 25.00</div>
-				</li>
+				{%endfor%}
 			</ul>
 		</div>
 	</div>
@@ -126,36 +114,23 @@
 			<h3 class="fl" id="model03">猪牛羊肉</h3>
 			<div class="subtitle fl">
 				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
+				{%for g in type21%}
+				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
+				{%endfor%}
 			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
+			<a href="/goods/list7_1_1/" class="goods_more fr">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
 			<div class="goods_banner fl"><img src="/static/images/banner03.jpg"></div>
 			<ul class="goods_list fl">
+				{%for g in type2%}
 				<li>
-					<h4><a href="#">维多利亚葡萄维多利亚葡萄维多利亚葡萄维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
+					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
+					<a href="/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
+					<div class="prize">¥ {{g.gprice}}</div>
 				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
+				{%endfor%}
 			</ul>
 		</div>
 	</div>
@@ -165,36 +140,23 @@
 			<h3 class="fl" id="model04">禽类蛋品</h3>
 			<div class="subtitle fl">
 				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
+				{%for g in type31%}
+				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
+				{%endfor%}
 			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
+			<a href="/goods/list8_1_1/" class="goods_more fr">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
 			<div class="goods_banner fl"><img src="/static/images/banner04.jpg"></div>
 			<ul class="goods_list fl">
+				{%for g in type3%}
 				<li>
-					<h4><a href="#">维多利亚葡萄维多利亚葡萄维多利亚葡萄维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
+					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
+					<a href="/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
+					<div class="prize">¥ {{g.gprice}}</div>
 				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
+				{%endfor%}
 			</ul>
 		</div>
 	</div>
@@ -204,36 +166,23 @@
 			<h3 class="fl" id="model05">新鲜蔬菜</h3>
 			<div class="subtitle fl">
 				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
+				{%for g in type41%}
+				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
+				{%endfor%}
 			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
+			<a href="/goods/list9_1_1/" class="goods_more fr">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
 			<div class="goods_banner fl"><img src="/static/images/banner05.jpg"></div>
 			<ul class="goods_list fl">
+				{%for g in type4%}
 				<li>
-					<h4><a href="#">维多利亚葡萄维多利亚葡萄维多利亚葡萄维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
+					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
+					<a href="/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
+					<div class="prize">¥ {{g.gprice}}</div>
 				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
+				{%endfor%}
 			</ul>
 		</div>
 	</div>
@@ -243,36 +192,23 @@
 			<h3 class="fl" id="model06">速冻食品</h3>
 			<div class="subtitle fl">
 				<span>|</span>
-				<a href="#">鲜芒</a>
-				<a href="#">加州提子</a>
-				<a href="#">亚马逊牛油果</a>
+				{%for g in type51%}
+				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
+				{%endfor%}
 			</div>
-			<a href="#" class="goods_more fr">查看更多 ></a>
+			<a href="/goods/list10_1_1/" class="goods_more fr">查看更多 ></a>
 		</div>
 
 		<div class="goods_con clearfix">
 			<div class="goods_banner fl"><img src="/static/images/banner06.jpg"></div>
 			<ul class="goods_list fl">
+				{%for g in type5%}
 				<li>
-					<h4><a href="#">维多利亚葡萄维多利亚葡萄维多利亚葡萄维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
+					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
+					<a href="/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
+					<div class="prize">¥ {{g.gprice}}</div>
 				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
-				<li>
-					<h4><a href="#">维多利亚葡萄</a></h4>
-					<a href="#"><img src="/static/images/goods.jpg"></a>
-					<div class="prize">¥ 38.00</div>
-				</li>
+				{%endfor%}
 			</ul>
 		</div>
 	</div>
