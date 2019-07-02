@@ -54,3 +54,13 @@ def list(request, tid, pindex, sort):
                'sort':sort,
                'news':news}
     return render(request, 'df_goods/list.html', context)
+
+def detail(request, id):
+    uname = request.session.get('user', '未登录')
+    goods=GoodsInfo.objects.get(pk=int(id))
+    goods.gclick=goods.gclick+1
+    goods.save()
+    news=goods.gtype.goodsinfo_set.order_by('-id')[0:2]
+    context={'uname': uname, 'title':goods.gtype.ttitle, 'guest_cart':1,
+             'g':goods, 'news':news, 'id':id}
+    return render(request, 'df_goods/detail.html', context)

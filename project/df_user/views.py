@@ -87,10 +87,10 @@ def user_center_info(request):
     context = {'uname': uname, 'uphone': uphone, 'uaddress':uaddress}
     return render(request,'df_user/user_center_info.html',context)
 
-def user_center_order(request):
-    uname = request.session.get('user', '未登录')
-    context = {'uname': uname}
-    return render(request, 'df_user/user_center_order.html', context)
+# def user_center_order(request):
+#     uname = request.session.get('user', '未登录')
+#     context = {'uname': uname}
+#     return render(request, 'df_user/user_center_order.html', context)
 
 def user_center_site(request):
     uname = request.session.get('user', '未登录')
@@ -114,20 +114,20 @@ def user_center_site(request):
     context = {'uname': uname, 'uphone': uphone, 'uaddress': uaddress, 'ushou':ushou, 'uyoubian':uyoubian}
     return render(request, 'df_user/user_center_site.html', context)
 
-@user_decorator.login
-def cart(request):
-    uname = request.session.get('user', '未登录')
-    context = {'uname': uname}
-    return render(request, 'df_user/cart.html', context)
+# @user_decorator.login
+# def cart(request):
+#     uname = request.session.get('user', '未登录')
+#     context = {'uname': uname}
+#     return render(request, 'df_user/cart.html', context)
 
-@user_decorator.login
-def place_order(request):
-    uname = request.session.get('user', '未登录')
-    id = request.session.get('id', 'null')
-    user = UserInfo.objects.get(id=id)
-    uaddress = user.uaddress
-    context = {'uname': uname,'uaddress': uaddress}
-    return render(request, 'df_user/place_order.html', context)
+# @user_decorator.login
+# def place_order(request):
+#     uname = request.session.get('user', '未登录')
+#     id = request.session.get('id', 'null')
+#     user = UserInfo.objects.get(id=id)
+#     uaddress = user.uaddress
+#     context = {'uname': uname,'uaddress': uaddress}
+#     return render(request, 'df_user/place_order.html', context)
 
 
 def logout(request):

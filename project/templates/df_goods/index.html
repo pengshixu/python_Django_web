@@ -3,17 +3,20 @@
 {%block headjs%}
 <script type="text/javascript" src="/static/js/slide.js"></script>
 <script type="text/javascript" src="/static/js/jquery-ui.min.js"></script>
+<script type="text/javascript">
+	document.title = "天天生鲜-首页"
+</script>
 {%endblock headjs%}
 
 {%block body%}
 	<div class="search_bar clearfix">
-		<a href="index.html" class="logo fl"><img src="/static/images/logo.png"></a>
+		<a href="/goods/index" class="logo fl"><img src="/static/images/logo.png"></a>
 		<div class="search_con fl">
 			<input type="text" class="input_text fl" name="" placeholder="搜索商品">
 			<input type="button" class="input_btn fr" name="" value="搜索">
 		</div>
 		<div class="guest_cart fr">
-			<a href="#" class="cart_name fl">我的购物车</a>
+			<a href="/cart" class="cart_name fl">我的购物车</a>
 			<div class="goods_count fl" id="show_count">1</div>
 		</div>
 	</div>
@@ -22,7 +25,7 @@
 		<div class="navbar">
 			<h1 class="fl">全部商品分类</h1>
 			<ul class="navlist fl">
-				<li><a href="">首页</a></li>
+				<li><a href="/goods/index">首页</a></li>
 				<li class="interval">|</li>
 				<li><a href="">手机生鲜</a></li>
 				<li class="interval">|</li>
@@ -63,7 +66,7 @@
 			<div class="subtitle fl">
 				<span>|</span>
 				{%for g in type01%}
-				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
+					<a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
 				{%endfor%}
 			</div>
 			<a href="/goods/list5_1_1/" class="goods_more fr" id="fruit_more">查看更多 ></a>
@@ -74,8 +77,8 @@
 			<ul class="goods_list fl">
 				{%for g in type0%}
 				<li>
-					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
-					<a href="/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
+					<h4><a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
+					<a href="/goods/detail/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
 					<div class="prize">¥ {{g.gprice}}</div>
 				</li>
 				{%endfor%}
@@ -89,7 +92,7 @@
 			<div class="subtitle fl">
 				<span>|</span>
 				{%for g in type11%}
-				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
+				<a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
 				{%endfor%}
 			</div>
 			<a href="/goods/list6_1_1/" class="goods_more fr">查看更多 ></a>
@@ -100,8 +103,8 @@
 			<ul class="goods_list fl">
 				{%for g in type1%}
 				<li>
-					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
-					<a href="/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
+					<h4><a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
+					<a href="/goods/detail/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
 					<div class="prize">¥ {{g.gprice}}</div>
 				</li>
 				{%endfor%}
@@ -115,7 +118,7 @@
 			<div class="subtitle fl">
 				<span>|</span>
 				{%for g in type21%}
-				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
+				<a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
 				{%endfor%}
 			</div>
 			<a href="/goods/list7_1_1/" class="goods_more fr">查看更多 ></a>
@@ -126,8 +129,8 @@
 			<ul class="goods_list fl">
 				{%for g in type2%}
 				<li>
-					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
-					<a href="/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
+					<h4><a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
+					<a href="/goods/detail/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
 					<div class="prize">¥ {{g.gprice}}</div>
 				</li>
 				{%endfor%}
@@ -141,7 +144,7 @@
 			<div class="subtitle fl">
 				<span>|</span>
 				{%for g in type31%}
-				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
+				<a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
 				{%endfor%}
 			</div>
 			<a href="/goods/list8_1_1/" class="goods_more fr">查看更多 ></a>
@@ -152,8 +155,8 @@
 			<ul class="goods_list fl">
 				{%for g in type3%}
 				<li>
-					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
-					<a href="/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
+					<h4><a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
+					<a href="/goods/detail/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
 					<div class="prize">¥ {{g.gprice}}</div>
 				</li>
 				{%endfor%}
@@ -167,7 +170,7 @@
 			<div class="subtitle fl">
 				<span>|</span>
 				{%for g in type41%}
-				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
+				<a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
 				{%endfor%}
 			</div>
 			<a href="/goods/list9_1_1/" class="goods_more fr">查看更多 ></a>
@@ -178,8 +181,8 @@
 			<ul class="goods_list fl">
 				{%for g in type4%}
 				<li>
-					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
-					<a href="/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
+					<h4><a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
+					<a href="/goods/detail/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
 					<div class="prize">¥ {{g.gprice}}</div>
 				</li>
 				{%endfor%}
@@ -193,7 +196,7 @@
 			<div class="subtitle fl">
 				<span>|</span>
 				{%for g in type51%}
-				<a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
+				<a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a>
 				{%endfor%}
 			</div>
 			<a href="/goods/list10_1_1/" class="goods_more fr">查看更多 ></a>
@@ -204,8 +207,8 @@
 			<ul class="goods_list fl">
 				{%for g in type5%}
 				<li>
-					<h4><a href="/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
-					<a href="/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
+					<h4><a href="/goods/detail/{{g.id}}/">{{g.gtitle|slice:'10'}}</a></h4>
+					<a href="/goods/detail/{{g.id}}/"><img src="/static/{{g.gpic}}" alt=""></a>
 					<div class="prize">¥ {{g.gprice}}</div>
 				</li>
 				{%endfor%}

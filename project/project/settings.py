@@ -26,7 +26,7 @@ SECRET_KEY = 'lb65ntrbd$-z_wwb4vg3e$_ri86@_0a&h--vg2-v0lkci(vmo@'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['192.168.1.102']
 
 
 # Application definition
@@ -40,13 +40,16 @@ INSTALLED_APPS = (
     'django.contrib.staticfiles',
     'df_user',
     'df_goods',
-    'tinymce'
+    'tinymce',
+    'df_cart',
+    'df_order',
+    'df_api'
 )
 
 MIDDLEWARE_CLASSES = (
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
-    'django.middleware.csrf.CsrfViewMiddleware',
+    # 'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.auth.middleware.SessionAuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
@@ -74,6 +77,7 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'project.wsgi.application'
 
+# SESSION_SERIALIZER = 'django.contrib.sessions.serializers.PickleSerializer'
 
 # Database
 # https://docs.djangoproject.com/en/1.8/ref/settings/#databases
@@ -86,6 +90,7 @@ DATABASES = {
         'PASSWORD': 'root',
         'HOST': 'localhost',
         'PORT': '3306',
+        'CHARSET': 'utf-8'
     }
 }
 

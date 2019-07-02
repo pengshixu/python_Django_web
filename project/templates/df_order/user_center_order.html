@@ -1,0 +1,93 @@
+{%extends 'base_user.html'%}
+
+{%block body%}
+	<div class="search_bar clearfix">
+		<a href="/goods/index" class="logo fl"><img src="/static/images/logo.png"></a>
+		<div class="sub_page_name fl">|&nbsp;&nbsp;&nbsp;&nbsp;用户中心</div>
+		<div class="search_con fr">
+			<input type="text" class="input_text fl" name="" placeholder="搜索商品">
+			<input type="button" class="input_btn fr" name="" value="搜索">
+		</div>
+	</div>
+
+	<div class="main_con clearfix">
+		<div class="left_menu_con clearfix">
+			<h3>用户中心</h3>
+			<ul id="selector">
+				<li><a href="/user/user_center_info/">· 个人信息</a></li>
+				<li><a href="/order/order_1/" class="active">· 全部订单</a></li>
+				<li><a href="/user/user_center_site/">· 收货地址</a></li>
+			</ul>
+		</div>
+		<div class="right_content clearfix">
+				<h3 class="common_title2">全部订单</h3>
+
+				{%for order in page%}
+				<ul class="order_list_th w978 clearfix">
+					<li class="col01">{{order.odate}}</li>
+					<li class="col02">订单号：{{order.oid}}</li>
+					{%if order.oIsPay == True %}
+					<li class="col02 stress">已支付</li>
+					{%else%}
+					<li class="col02 stress">未支付</li>
+					{%endif%}
+				</ul>
+				<table class="order_list_table w980">
+					<tbody>
+						<tr>
+							<td width="55%">
+								{%for detail in details%}
+								{%if detail.order.oid == order.oid%}
+								<ul class="order_goods_list clearfix">
+									<li class="col01"><img src="/static/{{detail.goods.gpic}}"></li>
+									<li class="col02">{{detail.goods.gname}}<em>{{detail.goods.gprice}}元/{{detail.goods.gunit}}</em></li>
+									<li class="col03">{{detail.count}}</li>
+									<li class="col04">{{detail.price}}元</li>
+								</ul>
+								{%endif%}
+								{%endfor%}
+							</td>
+							<td width="15%">{{order.ototal}}元</td>
+							{%if order.oIsPay == True %}
+							<td width="15%">已支付</td>
+							{%else%}
+							<td width="15%">未支付</td>
+							{%endif%}
+							<td width="15%"><a href="#" class="oper_btn">查看物流</a></td>
+						</tr>
+					</tbody>
+				</table>
+				{%endfor%}
+
+				<!--<div class="pagenation">-->
+					<!--<a href="#">&lt上一页</a>-->
+					<!--<a href="#" class="active">1</a>-->
+					<!--<a href="#">2</a>-->
+					<!--<a href="#">3</a>-->
+					<!--<a href="#">4</a>-->
+					<!--<a href="#">5</a>-->
+					<!--<a href="#">下一页&gt</a>-->
+				<!--</div>-->
+
+				<div class="pagenation">
+
+					{%if page.has_previous%}
+					<a href="/order/order_{{page.previous_page_number}}">&lt上一页</a>
+					{%endif%}
+
+					{%for pindex in paginator.page_range%}
+					{%if pindex == page.number%}
+					<a href="#" class="active">{{pindex}}</a>
+					{%else%}
+					<a href="/order/order_{{pindex}}">{{pindex}}</a>
+					{%endif%}
+					{%endfor%}
+
+					{%if page.has_next%}
+					<a href="/order/order{{typeinfo.id}}_{{page.next_page_number}}_{{sort}}">下一页></a>
+					{%endif%}
+
+				</div>
+		</div>
+	</div>
+{%endblock body%}
