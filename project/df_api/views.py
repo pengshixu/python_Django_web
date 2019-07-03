@@ -31,6 +31,7 @@ def api_goods(request):
                     'gunit':goods.gunit,
                     'gjianjie':goods.gjianjie,
                     'gkucun':goods.gkucun
+                    # 'gtype':goods.gtype
                 }
             )
     return JsonResponse(typeInfo, safe=False)
@@ -67,3 +68,18 @@ def api_userInfo(request):
         'uyoubian':user.uyoubian
     })
     return JsonResponse(userInfo, safe=False)
+
+def api_goodslist(request,gid):
+    goods = GoodsInfo.objects.filter(gtype=gid)
+    goodlist = []
+    for good in goods:
+        goodlist.append({
+            'gid': good.id,
+            'gtitle': good.gtitle,
+            'gpic': str(good.gpic),
+            'gprice': good.gprice,
+            'gunit': good.gunit,
+            'gjianjie': good.gjianjie,
+            'gkucun': good.gkucun
+        })
+    return JsonResponse(goodlist, safe=False)
