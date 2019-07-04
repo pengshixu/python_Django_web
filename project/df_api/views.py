@@ -83,3 +83,17 @@ def api_goodslist(request,gid):
             'gkucun': good.gkucun
         })
     return JsonResponse(goodlist, safe=False)
+
+def api_goodsdetail(request, gid):
+    good = GoodsInfo.objects.get(id=gid)
+    goodsdetail = {
+        'gid': good.id,
+        'gtitle': good.gtitle,
+        'gpic': str(good.gpic),
+        'gprice': good.gprice,
+        'gunit': good.gunit,
+        'gjianjie': good.gjianjie,
+        'gkucun': good.gkucun,
+        'gcontent': good.gcontent
+    }
+    return JsonResponse(goodsdetail, safe=False)
