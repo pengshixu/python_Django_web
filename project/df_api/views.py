@@ -44,6 +44,7 @@ def api_cart(request):
     cartInfo = []
     for cart in cartlist:
         cartInfo.append({
+            'cartID':cart.id,
             'userID':cart.user_id,
             'gtitle':cart.goods.gtitle,
             'gpic':str(cart.goods.gpic),
@@ -97,3 +98,104 @@ def api_goodsdetail(request, gid):
         'gcontent': good.gcontent
     }
     return JsonResponse(goodsdetail, safe=False)
+
+def api_plus(request, cid):
+    cart = CartInfo.objects.filter(id=cid)
+    if len(cart)>=1:
+        cart=cart[0]
+        cart.count=cart.count+1
+    else:
+        cart=CartInfo()
+    cart.save()
+    userID = CartInfo.objects.get(id=cid).user
+    cartlist = CartInfo.objects.filter(user_id=userID)
+    cartInfo = []
+    for cart in cartlist:
+        cartInfo.append({
+            'cartID': cart.id,
+            'userID': cart.user_id,
+            'gtitle': cart.goods.gtitle,
+            'gpic': str(cart.goods.gpic),
+            'gjianjie': cart.goods.gjianjie,
+            'gprice': cart.goods.gprice,
+            'count': cart.count
+        }
+        )
+    return JsonResponse(cartInfo, safe=False)
+
+def api_diss(request, cid):
+    cart = CartInfo.objects.filter(id=cid)
+    if len(cart)>=1:
+        cart=cart[0]
+        cart.count=cart.count-1
+    else:
+        cart=CartInfo()
+    cart.save()
+    userID = CartInfo.objects.get(id=cid).user
+    cartlist = CartInfo.objects.filter(user_id=userID)
+    cartInfo = []
+    for cart in cartlist:
+        cartInfo.append({
+            'cartID': cart.id,
+            'userID': cart.user_id,
+            'gtitle': cart.goods.gtitle,
+            'gpic': str(cart.goods.gpic),
+            'gjianjie': cart.goods.gjianjie,
+            'gprice': cart.goods.gprice,
+            'count': cart.count
+        }
+        )
+    return JsonResponse(cartInfo, safe=False)
+
+def api_edit(request, cid, num):
+    cart = CartInfo.objects.filter(id=cid)
+    if len(cart) >= 1:
+        cart = cart[0]
+        cart.count = num
+    else:
+        cart = CartInfo()
+    cart.save()
+    userID = CartInfo.objects.get(id=cid).user
+    cartlist = CartInfo.objects.filter(user_id=userID)
+    cartInfo = []
+    for cart in cartlist:
+        cartInfo.append({
+            'cartID': cart.id,
+            'userID': cart.user_id,
+            'gtitle': cart.goods.gtitle,
+            'gpic': str(cart.goods.gpic),
+            'gjianjie': cart.goods.gjianjie,
+            'gprice': cart.goods.gprice,
+            'count': cart.count
+        }
+        )
+    return JsonResponse(cartInfo, safe=False)
+
+def api_add(request, gid):
+    uname = request.GET.get('uname')
+    print(uname)
+    uid = UserInfo.objects.get(uname=uname).id
+    cart = CartInfo.objects.filter(user_id=uid, goods_id=gid)
+    if len(cart) >= 1:
+        cart = cart[0]
+        cart.count = cart.count + 1
+    else:
+        cart = CartInfo()
+        cart.user_id = uid
+        cart.goods_id = gid
+        cart.count = 1
+    cart.save()
+    cartlist = CartInfo.objects.filter(user_id=uid)
+    cartInfo = []
+    for cart in cartlist:
+        cartInfo.append({
+            'cartID': cart.id,
+            'userID': cart.user_id,
+            'gtitle': cart.goods.gtitle,
+            'gpic': str(cart.goods.gpic),
+            'gjianjie': cart.goods.gjianjie,
+            'gprice': cart.goods.gprice,
+            'count': cart.count
+        }
+        )
+    return JsonResponse(cartInfo, safe=False)
